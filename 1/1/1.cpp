@@ -1,32 +1,22 @@
 #include <iostream>
 #include <fstream>
-std::ifstream f("bac.txt");
-
-/// <Problema 1>
+using namespace std;
+ifstream f("numere.txt");
 
 int main()
 {
-    int maxx1 = 0, maxx2 = 0,x;
-    while(f >> x)
-    {
-        if(x % 2 == 0)
-        {
-            if (maxx1 < x)
-            {
-                maxx2 = maxx1;
-                maxx1 = x;
-            }
-            else if(maxx2 < x)
-            {
-                maxx2 = x;
-            }
-        }
-    }
-    
-    if (maxx1 == 0 || maxx2 == 0)
-        std::cout << 0;
-    else
-        std::cout << maxx1 << " " << maxx2;
+    int x;
+	int maxx = 0, minn = 1000000;
+	while (f >> x)
+	{
+		if (x % 2 == 0) {
+			if (x > maxx)
+				maxx = x;
+			if (x < minn)
+				minn = x;
+		}
+	}
+	cout << maxx << " " << minn;
     return 0;
 }
 
